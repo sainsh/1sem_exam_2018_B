@@ -5,8 +5,8 @@ public class Picture extends Media {
     private int height;
     private String photographer;
 
-    public Picture(String name, String fileName, String filetype, int width, int height, String photographer) {
-        super(name, fileName);
+    public Picture(String name, String fileName, Boolean brugerGenereret, String filetype, int width, int height, String photographer) {
+        super(name, fileName, brugerGenereret);
         this.filetype = filetype;
         this.width = width;
         this.height = height;

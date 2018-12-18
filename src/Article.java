@@ -6,8 +6,8 @@ public class Article extends Media {
     private String articleText;
     private String imageFilePath;
 
-    public Article(String name, String fileName, String authour, String articleText, String imageFilePath) {
-        super(name, fileName);
+    public Article(String name, String fileName,Boolean brugerGenereret, String authour, String articleText, String imageFilePath) {
+        super(name, fileName, brugerGenereret);
         this.authour = authour;
         this.articleText = articleText;
         this.imageFilePath = imageFilePath;

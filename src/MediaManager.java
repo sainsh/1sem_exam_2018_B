@@ -83,7 +83,7 @@ public class MediaManager {
                             String photographer = "";
 
 
-                            mediaList.add(new Video(fileExtension[0], fileName, fileExtension[1], (int) mp.getDuration().toSeconds(), resolution, photographer));
+                            mediaList.add(new Video(fileExtension[0], fileName,false, fileExtension[1], (int) mp.getDuration().toSeconds(), resolution, photographer));
 
                         } else if (fileExtension[1].equals("jpg") || fileExtension[1].equals("png") || fileExtension[1].equals("gif")) {    //if file is picture
 
@@ -93,7 +93,7 @@ public class MediaManager {
                             String photographer = "";
 
 
-                            mediaList.add(new Picture(fileExtension[0], fileName, fileExtension[1], mp.getWidth(), mp.getHeight(), photographer));
+                            mediaList.add(new Picture(fileExtension[0], fileName,false, fileExtension[1], mp.getWidth(), mp.getHeight(), photographer));
 
                         } else if (fileExtension[1].equals("txt")) {    //if file is article
 
@@ -107,7 +107,7 @@ public class MediaManager {
                                 articleText += input.next();
                             }
 
-                            mediaList.add(new Article(fileExtension[0], fileName, author, articleText, fileExtension[0] + ".png"));
+                            mediaList.add(new Article(fileExtension[0], fileName,false, author, articleText, fileExtension[0] + ".png"));
 
                         } else {
 

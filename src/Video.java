@@ -5,8 +5,8 @@ public class Video extends Media {
     private String resolution;
     private String photographer;
 
-    public Video(String name, String fileName, String fileType, int length, String resolution, String photographer) {
-        super(name,fileName);
+    public Video(String name, String fileName,Boolean brugerGenereret, String fileType, int length, String resolution, String photographer) {
+        super(name,fileName,brugerGenereret);
         this.filetype = fileType;
         this.length = length;
         this.resolution = resolution;

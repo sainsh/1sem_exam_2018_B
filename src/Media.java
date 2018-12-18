@@ -8,13 +8,15 @@ public class Media {
     private String name;
     private Date created = new Date();      // instantiere et nyt Date objekt
     private String fileName;
+    private Boolean brugerGenereret;
 
 
-    public Media(String name, String fileName) {    //constructor
+    public Media(String name, String fileName, Boolean brugerGenereret) {    //constructor
         assetId = MediaID.generate();   //bruger MediaID klassen til at generere et unikt ID
         created = Date.from(Instant.now()); //bruger Date klassen til at få tidspunktet hvor objected konstrueres
         this.name = name;
         this.fileName = fileName;
+        this.brugerGenereret = brugerGenereret;
 
     }
 
