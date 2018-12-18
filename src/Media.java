@@ -10,9 +10,12 @@ public class Media {
     private String fileName;
 
 
-    public Media() {    //constructor
+    public Media(String name, String fileName) {    //constructor
         assetId = MediaID.generate();   //bruger MediaID klassen til at generere et unikt ID
         created = Date.from(Instant.now()); //bruger Date klassen til at få tidspunktet hvor objected konstrueres
+        this.name = name;
+        this.fileName = fileName;
+
     }
 
     //getters og setters
@@ -49,8 +52,8 @@ public class Media {
         this.fileName = fileName;
     }
 
-    public void logToConsole(){
-        System.out.printf("name: %s, media type: %s",name, this.getClass().toString());
+    public void logToConsole() {
+        System.out.printf("name: %s, media type: %s\n", name, this.getClass().toString());
     }
 
     @Override
