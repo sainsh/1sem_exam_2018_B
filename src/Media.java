@@ -3,17 +3,19 @@ import java.time.Instant;
 import java.util.Date;
 
 public class Media {
-
+    //først member variabler
     private int assetId;
     private String name;
-    private Date created = new Date();
+    private Date created = new Date();      // et Date object
     private String fileName;
 
 
-    public Media() {
-        assetId = MediaID.generate();
-        created = Date.from(Instant.now());
+    public Media() {    //constructor
+        assetId = MediaID.generate();   //bruger MediaID klassen til at generere et unikt ID
+        created = Date.from(Instant.now()); //bruger Date klassen til at få tidspunktet hvor objected konstrueres
     }
+
+    //getters og setters
 
     public int getAssetId() {
         return assetId;
@@ -48,7 +50,7 @@ public class Media {
     }
 
     @Override
-    public String toString() {
+    public String toString() {  //her overskrives toString metoden til at give alle variable pakket ind i "media{}"
         return "Media{" +
                 "assetId=" + assetId +
                 ", name='" + name + '\'' +
