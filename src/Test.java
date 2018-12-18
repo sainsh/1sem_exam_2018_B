@@ -4,9 +4,9 @@ public class Test {
 
 
     // Denne metode indeholder kode, som kan vise applikationens funktionalitet (ikke unit test)
-    public static void test() {
+    public static void test(String SOFTWARE_VERSION) {
 
-        System.out.println("TV2 Media Manager");
+        System.out.println("TV2 Media Manager "+ SOFTWARE_VERSION);
 
         Media m1 = new Media();
         m1.setName("Julemanden");
