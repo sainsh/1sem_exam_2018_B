@@ -68,6 +68,8 @@ public class MediaManager {
                         if (fileExtension[1].equals("mp4") || fileExtension[1].equals("m4v") || fileExtension[1].equals("mov")) {     // if file is video
 
                             javafx.scene.media.Media mp = new javafx.scene.media.Media(mediaFile.toURI().toString());  //instantiate new javafx Media object from filenName
+                             // this throws  Unrecognized file signature!
+                            // javaFX media file was not the correct way to implement picture files in code
 
                             String resolution;
                             if (mp.getWidth() >= 1920 && mp.getHeight() >= 1080) {
@@ -84,8 +86,8 @@ public class MediaManager {
                         } else if (fileExtension[1].equals("jpg") || fileExtension[1].equals("png") || fileExtension[1].equals("gif")) {    //if file is picture
 
                             javafx.scene.media.Media mp = new javafx.scene.media.Media(mediaFile.toURI().toString());  //instantiate new javafx Media object from filenName
-
-
+                            // this throws  Unrecognized file signature!
+                            // javaFX media file was not the correct way to implement video files in code
                             String photographer = "";
 
 
