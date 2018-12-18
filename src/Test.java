@@ -1,10 +1,11 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Test {
 
 
     // Denne metode indeholder kode, som kan vise applikationens funktionalitet (ikke unit test)
-    public static void test() {
+    public static void test() throws SQLException {
 
         System.out.println("TV2 Media Manager "+ Main.SOFTWARE_VERSION);
 
@@ -13,7 +14,8 @@ public class Test {
         m1.logToConsole();
         MediaManager manager = new MediaManager();
         manager.logMediaFolder(Main.MEDIA_MAPPE);
-        manager.readMediaFolder(Main.MEDIA_MAPPE);
+        //manager.readMediaFolder(Main.MEDIA_MAPPE); //throws exception for now
+        manager.backUpMedia(manager.readMediaFolder(Main.MEDIA_MAPPE));
 
         // Her kommer din kode
 

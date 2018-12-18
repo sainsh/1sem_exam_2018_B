@@ -4,10 +4,10 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
 
 
 public class MediaManager {
@@ -20,6 +20,8 @@ public class MediaManager {
 
     public void logMediaFolder(String folderName) {
 
+        String[] files = null;
+
         try {
 
             File file = new File(folderName);   //instantiate new File object with filepath
@@ -28,7 +30,7 @@ public class MediaManager {
 
                 if (file.isDirectory()) {   // if file is a folder
 
-                    String[] files = file.list();   //get all filenames in file(folder)
+                    files = file.list();   //get all filenames in file(folder)
                     for (String fileName : files) {
                         System.out.println(fileName);   //print all filenames
 
@@ -36,15 +38,19 @@ public class MediaManager {
 
 
                 }
+
             }
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+
+
     }
 
-    public String[] readMediaFolder(String folderName) {
+    public List<Media> readMediaFolder(String folderName) {
 
         try {
             File file = new File(folderName);   //instantiate new File object with filepath
@@ -87,7 +93,7 @@ public class MediaManager {
                             String photographer = "";
 
 
-                            mediaList.add(new Picture(fileExtension[0], fileName, fileExtension[1],mp.getWidth(), mp.getHeight(), photographer));
+                            mediaList.add(new Picture(fileExtension[0], fileName, fileExtension[1], mp.getWidth(), mp.getHeight(), photographer));
 
                         } else if (fileExtension[1].equals("txt")) {    //if file is article
 
@@ -97,11 +103,11 @@ public class MediaManager {
                             input.close();
                             input = new Scanner(fileName);
                             String articleText = "";
-                            while(input.hasNext()){
+                            while (input.hasNext()) {
                                 articleText += input.next();
                             }
 
-                            mediaList.add(new Article(fileExtension[0], fileName,author,articleText,fileExtension[0]+".png"));
+                            mediaList.add(new Article(fileExtension[0], fileName, author, articleText, fileExtension[0] + ".png"));
 
                         } else {
 
@@ -114,7 +120,42 @@ public class MediaManager {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return mediaArray;
+        return mediaList;
+    }
+
+    public void backUpMedia(List<Media> mediaArray) throws SQLException {
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("der er fejl med din database driver JDBC");
+            e.printStackTrace();
+        }
+        System.out.println("Driver loaded");
+
+        Connection connection = DriverManager.getConnection
+                ("jdbc:mysql://127.0.0.1:33067/MediaManager", "admin", "admin");
+
+        Statement statement = connection.createStatement();
+        String sql = "";
+        for (Media media : mediaList) {
+            sql ="INSERT INTO media(assetID,name,created,fileName) VALUES("+media.getAssetId()+","+ media.getName()+","+media.getCreated()+","+media.getFileName()+")";
+            System.out.println(sql);
+            statement.execute(sql);
+
+
+        }
+
+        sql = "SELECT * FROM media";
+        ResultSet results = statement.executeQuery(sql);
+
+        while(results.next()){
+            System.out.printf("",results.getInt(0), results.getString(1),results.getDate(2),results.getString(3));
+        }
+
+        connection.close();
+
+
     }
 
 
