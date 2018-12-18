@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {    //start af program
 
-        Test.test(SOFTWARE_VERSION);    //kører test metoden i Test klassen
+        Test.test();    //kører test metoden i Test klassen
 
     }
 }

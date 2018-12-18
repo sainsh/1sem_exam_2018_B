@@ -15,7 +15,7 @@ public class MediaID {
 
     public static int generate() {
 
-        File file = new File("media_id.txt"); //initialiserer et nyt File objekt med stien "media_id.txt"
+        File file = new File("media_id.txt"); //instantierer et nyt File objekt med stien "media_id.txt"
 
         // Låser filen op før adgang
         // file.setWritable(true);
@@ -24,14 +24,14 @@ public class MediaID {
 
 
             if (file.exists()) {    //hvis filen eksisterer
-                FileReader fileReader = new FileReader(file);   //initialiserer et ny FileReader object med file
-                Scanner scanner = new Scanner(file);    //initialiserer et nyt Scanner object med file
+                FileReader fileReader = new FileReader(file);   //instantierer et ny FileReader object med file
+                Scanner scanner = new Scanner(file);    //instantierer et nyt Scanner object med file
                 latestId = (int) scanner.nextInt();     //læser den første int i filen og assigner værdien til latestId
             }
 
             latestId++; //incrementer latestId
 
-            FileWriter fileWriter = new FileWriter(file);   //initialiserer et nyt FileWriter objekt med file
+            FileWriter fileWriter = new FileWriter(file);   //instantierer et nyt FileWriter objekt med file
             fileWriter.write(Integer.toString(latestId));   //skriver latestID til filen file, efter at latestId er castet til en String
             fileWriter.close();     //lukker FileWriter'er, s filen file kan benyttes igen
 

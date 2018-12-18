@@ -6,7 +6,7 @@ public class Media {
     //først member variabler
     private int assetId;
     private String name;
-    private Date created = new Date();      // et Date object
+    private Date created = new Date();      // instantiere et nyt Date objekt
     private String fileName;
 
 
