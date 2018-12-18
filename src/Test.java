@@ -15,7 +15,7 @@ public class Test  {
 
         System.out.println("TV2 Media Manager "+ Main.SOFTWARE_VERSION);
 
-        Media m1 = new Media("julemanden","julemand.jpg");
+        Media m1 = new Media("julemanden","julemand.jpg",false);
         System.out.println(m1.toString());
         m1.logToConsole();
         MediaManager manager = new MediaManager();
