@@ -134,11 +134,11 @@ public class MediaManager {
         System.out.println("Driver loaded");
 
         Connection connection = DriverManager.getConnection
-                ("jdbc:mysql://127.0.0.1:33067/MediaManager", "admin", "admin");
+                ("jdbc:mysql://127.0.0.1:33067/MediaManager", "admin", "admin");    //connects to database
 
         Statement statement = connection.createStatement();
         String sql = "";
-        for (Media media : mediaList) {
+        for (Media media : mediaList) { //Inserts everything in the list into the database
             sql ="INSERT INTO media(assetID,name,created,fileName) VALUES("+media.getAssetId()+","+ media.getName()+","+media.getCreated()+","+media.getFileName()+")";
             System.out.println(sql);
             statement.execute(sql);
