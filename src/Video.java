@@ -5,6 +5,10 @@ public class Video extends Media {
     private String resolution;
     private Picture picture;
 
+    @Override
+    public void logToConsole(){
+        System.out.printf("name: %s, media type: %s",super.getName(),getClass().toString());
 
+    }
 
 }

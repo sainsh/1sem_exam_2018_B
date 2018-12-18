@@ -49,6 +49,10 @@ public class Media {
         this.fileName = fileName;
     }
 
+    public void logToConsole(){
+        System.out.printf("name: %s, media type: %s",name, this.getClass().toString());
+    }
+
     @Override
     public String toString() {  //her overskrives toString metoden til at give alle variable pakket ind i "media{}"
         return "Media{" +

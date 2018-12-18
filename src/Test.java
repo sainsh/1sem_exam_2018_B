@@ -12,6 +12,7 @@ public class Test {
         m1.setName("Julemanden");
         m1.setFileName("julemand.jpg");
         System.out.println(m1.toString());
+        m1.logToConsole();
 
         // Her kommer din kode
 
