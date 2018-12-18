@@ -20,8 +20,8 @@ public class Test  {
         m1.logToConsole();
         MediaManager manager = new MediaManager();
         manager.logMediaFolder(Main.MEDIA_MAPPE);
-        //manager.readMediaFolder(Main.MEDIA_MAPPE); //throws exception for now
-        //manager.backUpMedia(manager.readMediaFolder(Main.MEDIA_MAPPE));
+        manager.readMediaFolder(Main.MEDIA_MAPPE); //throws exception for now,
+        manager.backUpMedia(manager.readMediaFolder(Main.MEDIA_MAPPE));
 
 
 
