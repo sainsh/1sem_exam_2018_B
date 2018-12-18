@@ -4,6 +4,7 @@ import javafx.scene.media.MediaPlayer;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class MediaManager {
     // Her kommer din kode
 
     private String[] mediaArray;
-    private List<Media> mediaList;
+    private List<Media> mediaList = new ArrayList<>();
 
 
     public void logMediaFolder(String folderName) {
@@ -64,7 +65,7 @@ public class MediaManager {
 
                         if (fileExtension[1].equals("mp4") || fileExtension[1].equals("m4v") || fileExtension[1].equals("mov")) {     // if file is video
 
-                            javafx.scene.media.Media mp = new javafx.scene.media.Media(fileName);  //instantiate new mediaplyer object with a javafx Media object from filenName
+                            javafx.scene.media.Media mp = new javafx.scene.media.Media(mediaFile.toURI().toString());  //instantiate new javafx Media object from filenName
 
                             String resolution;
                             if (mp.getWidth() >= 1920 && mp.getHeight() >= 1080) {
@@ -80,7 +81,7 @@ public class MediaManager {
 
                         } else if (fileExtension[1].equals("jpg") || fileExtension[1].equals("png") || fileExtension[1].equals("gif")) {    //if file is picture
 
-                            javafx.scene.media.Media mp = new javafx.scene.media.Media(fileName);  //instantiate new mediaplyer object with a javafx Media object from filenName
+                            javafx.scene.media.Media mp = new javafx.scene.media.Media(mediaFile.toURI().toString());  //instantiate new javafx Media object from filenName
 
 
                             String photographer = "";
@@ -94,9 +95,13 @@ public class MediaManager {
                             input.nextLine();
                             String author = input.nextLine().split("af ")[1];
                             input.close();
-                            FileReader fileReader = new FileReader(fileName);
+                            input = new Scanner(fileName);
+                            String articleText = "";
+                            while(input.hasNext()){
+                                articleText += input.next();
+                            }
 
-                            mediaList.add(new Article(fileExtension[0], fileName,author,fileReader.read(),mediaList.get(mediaList.indexOf())))
+                            mediaList.add(new Article(fileExtension[0], fileName,author,articleText,fileExtension[0]+".png"));
 
                         } else {
 
@@ -106,7 +111,7 @@ public class MediaManager {
 
 
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return mediaArray;
