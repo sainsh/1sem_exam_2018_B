@@ -13,6 +13,30 @@ public class Article extends Media {
         this.imageFilePath = imageFilePath;
     }
 
+    public String getAuthour() {
+        return authour;
+    }
+
+    public void setAuthour(String authour) {
+        this.authour = authour;
+    }
+
+    public String getArticleText() {
+        return articleText;
+    }
+
+    public void setArticleText(String articleText) {
+        this.articleText = articleText;
+    }
+
+    public String getImageFilePath() {
+        return imageFilePath;
+    }
+
+    public void setImageFilePath(String imageFilePath) {
+        this.imageFilePath = imageFilePath;
+    }
+
     @Override
     public void logToConsole(){
         System.out.printf("name: %s, media type: %s\n",super.getName(),getClass().toString());

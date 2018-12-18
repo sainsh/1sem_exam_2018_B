@@ -13,6 +13,22 @@ public class Video extends Media {
         this.photographer = photographer;
     }
 
+    public String getFiletype() {
+        return filetype;
+    }
+
+    public void setFiletype(String filetype) {
+        this.filetype = filetype;
+    }
+
+    public String getPhotographer() {
+        return photographer;
+    }
+
+    public void setPhotographer(String photographer) {
+        this.photographer = photographer;
+    }
+
     @Override
     public void logToConsole(){
         System.out.printf("name: %s, media type: %s\n",super.getName(),getClass().toString());
