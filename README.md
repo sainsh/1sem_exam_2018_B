@@ -1,4 +1,4 @@
-# 1. semester prøve / programmering
+﻿# 1. semester prøve / programmering
 
 **Dato: 18. december 2018 8:30 - 15:45**
 
@@ -129,6 +129,11 @@ Commit ændringerne.
 TV2 vil gerne have, at brugernes videoer og billeder skulle også indgå i systemet. Udvid systemet, så den kan skelne mellem bruger-genereret indhold og indhold som er lavet af TV2. (Hint: Kan du tilføje en instansvariable, som indikerer brugergenereret indhold? På hvilken klasse?)
 
 Skriv i README filen, hvordan du har løst denne opgave. 
+
+*****
+løsning
+*****
+Jeg har tilføjet en Boolean variable som kan sættes til sand hvis Mediet er bruger genereret, variablen ligger i Media
 
 Commit ændringerne.
 
